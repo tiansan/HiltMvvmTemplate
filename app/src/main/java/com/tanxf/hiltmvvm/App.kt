@@ -6,6 +6,8 @@ import com.dylanc.loadinghelper.ViewType
 import com.tanxf.hiltmvvm.ui.loading.EmptyAdapter
 import com.tanxf.hiltmvvm.ui.loading.ErrorAdapter
 import com.tanxf.hiltmvvm.ui.loading.LoadingAdapter
+import com.yechaoa.yutilskt.LogUtil
+import com.yechaoa.yutilskt.YUtils
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
@@ -14,6 +16,12 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         initLoading()
+        initYUtils()
+    }
+
+    private fun initYUtils() {
+        YUtils.init(this);
+        LogUtil.setIsLog(BuildConfig.DEBUG)
     }
 
     private fun initLoading() {
